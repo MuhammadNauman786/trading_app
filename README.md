@@ -1,16 +1,11 @@
 # skill_assessment
 
-A new Flutter project.
+<img width="1433" alt="image" src="https://github.com/MuhammadNauman786/trading_app/assets/107556384/e5dd90d1-41d3-47b9-a2b4-ef3790ed3e9e">
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<img width="1437" alt="image" src="https://github.com/MuhammadNauman786/trading_app/assets/107556384/2c3610f8-be81-4d4b-9e1b-890dc5d94114">
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img width="1432" alt="image" src="https://github.com/MuhammadNauman786/trading_app/assets/107556384/73e70783-b59e-4560-acc6-77a243f0e500">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
