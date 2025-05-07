@@ -18,12 +18,12 @@ class _GenerateTokenCardState extends State<GenerateTokenCard> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    debugPrint("Screen Height = $height");
-    debugPrint("Screen width = $width");
+    // debugPrint("Screen Height = $height");
+    // debugPrint("Screen width = $width");
     return Container(
       constraints:  BoxConstraints(
           minWidth: 300.w,
-          maxHeight: widget.constraints != null? height*50/100 : height <= 150? height : height <= 800? height*60/100 : 511.h,
+          maxHeight: widget.constraints != null? 450 : height <= 150? height : height <= 800? height*60/100 : 511.h,
           minHeight: 50.h,
           maxWidth: widget.constraints != null? widget.constraints!.maxWidth*60/100 : 480.w
       ),

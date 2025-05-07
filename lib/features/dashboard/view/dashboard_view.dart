@@ -110,28 +110,34 @@ class MediumView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: AppPaddings.commonSymmetricPadding,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Flexible(
-            flex: 5,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(child: HoldingsSection(constraints: constraints)),
-                SizedBox(
-                  width: 18.w,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                flex: 5,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(child: HoldingsSection(constraints: constraints, fromMedium: true)),
+                    SizedBox(
+                      width: 12.w,
+                    ),
+                    GenerateTokenCard(constraints: constraints,king: AppSvgs.king,),
+                  ],
                 ),
-                GenerateTokenCard(constraints: constraints,king: AppSvgs.king,),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 12.w,
+              ),
+              Flexible(flex: 5,child: ActiveTradesSection(contraints: constraints,)),
+            ],
           ),
-          SizedBox(
-            height: 18.w,
-          ),
-          Flexible(flex: 5,child: ActiveTradesSection(contraints: constraints,)),
-        ],
+        ),
       ),
     );
   }
@@ -154,7 +160,7 @@ class SmallView extends StatelessWidget {
             children: [
               HoldingsSectionHorizontal(constraints: constraints),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 18.w),
+                padding: EdgeInsets.symmetric(vertical: 12.w),
                 child: const GenerateTokenCard(king: AppSvgs.king,),
               ),
               ActiveTradesSection(contraints: constraints, fromSmallView: true,),
@@ -168,8 +174,9 @@ class SmallView extends StatelessWidget {
 
 
 class HoldingsSection extends StatelessWidget {
-  const HoldingsSection({super.key, this.constraints});
+  const HoldingsSection({super.key, this.constraints, this.fromMedium = false});
   final BoxConstraints? constraints;
+  final bool? fromMedium;
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +184,7 @@ class HoldingsSection extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(
           minWidth: 90.w,
-          maxHeight: constraints != null? height*50/100 : height <= 150? height : height <= 800? height*60/100 : 511.h,
+          maxHeight: fromMedium!? 450 : constraints != null? height*50/100 : height <= 150? height : height <= 800? height*60/100 : 511.h,
           minHeight: 50.h,
           maxWidth: constraints != null? constraints!.maxWidth : 280.w
       ),
@@ -215,6 +222,7 @@ class HoldingsSection extends StatelessWidget {
           SizedBox(height: 16.h),
           Flexible(
             child: SingleChildScrollView(
+
               child: Column(
                 children: [
                   const HoldingItem(symbol: 'ETH', amount: '0.3', value: '\$672.32', icon: AppImages.eth,),
